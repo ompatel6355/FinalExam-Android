@@ -1,6 +1,8 @@
 package com.example.ice7_android
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MovieViewModel by viewModels()
     private lateinit var firstAdapter: FirstAdapter
     private lateinit var movieList: MutableList<Movie>
+    private lateinit var sharedPreferences: SharedPreferences
 
     private val detailsActivityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -29,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
 
         // Initialize the adapter with an empty list
         firstAdapter = FirstAdapter(emptyList())
@@ -56,6 +61,18 @@ class MainActivity : AppCompatActivity() {
                 putExtra("IS_UPDATE", false)
             }
             detailsActivityResultLauncher.launch(intent)
+        }
+
+        binding.logoutButton.setOnClickListener {
+            // removing the auth_token
+            val editor = sharedPreferences.edit()
+            editor.putString("auth_token", "")
+            editor.apply()
+
+            // navigate back to the Login
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         // Setup swipe to delete

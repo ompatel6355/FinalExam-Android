@@ -1,5 +1,7 @@
 package com.example.ice7_android
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MovieViewModel : ViewModel()
+class MovieViewModel(application: Application) : AndroidViewModel(application = Application())
 {
     private val movieList = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>> = movieList
@@ -15,7 +17,7 @@ class MovieViewModel : ViewModel()
     private val individualMovie = MutableLiveData<Movie>()
     val movie: LiveData<Movie> = individualMovie
 
-    private val dataManager = DataManager.instance
+    private val dataManager = DataManager.instance(application)
 
     fun getAllMovies()
     {
