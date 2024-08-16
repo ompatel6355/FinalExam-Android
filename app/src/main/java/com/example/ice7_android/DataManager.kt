@@ -10,12 +10,10 @@ import android.content.Context
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 
-/* Singleton */
 class DataManager private constructor(private val context: Context) {
-    private val BASE_URL = "https://mdev1004-m2024-api-q9bi.onrender.com/api/"
+    private val BASE_URL = "https://mdev1004-finalapi.onrender.com/"
     private val sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
 
-    // converts JSON to Data we can use
     private val moshi: Moshi by lazy {
         Moshi.Builder()
             .addLast(KotlinJsonAdapterFactory())
@@ -38,11 +36,10 @@ class DataManager private constructor(private val context: Context) {
             .build()
     }
 
-    // Retrofit enables REQ / RES with APIs
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(okHttpClient) // interceptor
+            .client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
@@ -53,35 +50,35 @@ class DataManager private constructor(private val context: Context) {
         private var INSTANCE: DataManager? = null
 
         fun instance(context: Context): DataManager {
-            if(INSTANCE == null) {
+            if (INSTANCE == null) {
                 INSTANCE = DataManager(context.applicationContext)
             }
             return INSTANCE!!
         }
     }
 
-    private val service: MovieAPIService by lazy {
-        retrofit.create(MovieAPIService::class.java)
+    private val service: BuildingAPIService by lazy {
+        retrofit.create(BuildingAPIService::class.java)
     }
 
-    fun getAllMovies(callback: Callback<ApiResponse<List<Movie>>>) {
-        service.getAllMovies().enqueue(callback)
+    fun getAllBuildings(callback: Callback<ApiResponse<List<Building>>>) {
+        service.getAllBuildings().enqueue(callback)
     }
 
-    fun getMovieById(id: String?, callback: Callback<ApiResponse<Movie>>){
-        service.getMovieById(id).enqueue(callback)
+    fun getBuildingById(id: String, callback: Callback<ApiResponse<Building>>) {
+        service.getBuildingById(id).enqueue(callback)
     }
 
-    fun addMovie(movie: Movie, callback: Callback<ApiResponse<Movie>>) {
-        service.addMovie(movie).enqueue(callback)
+    fun addBuilding(building: Building, callback: Callback<ApiResponse<Building>>) {
+        service.addBuilding(building).enqueue(callback)
     }
 
-    fun updateMovie(id: String?, movie: Movie, callback: Callback<ApiResponse<Movie>>) {
-        service.updateMovie(id, movie).enqueue(callback)
+    fun updateBuilding(id: String, building: Building, callback: Callback<ApiResponse<Building>>) {
+        service.updateBuilding(id, building).enqueue(callback)
     }
 
-    fun deleteMovie(id: String?, callback: Callback<ApiResponse<String>>) {
-        service.deleteMovie(id).enqueue(callback)
+    fun deleteBuilding(id: String, callback: Callback<ApiResponse<String>>) {
+        service.deleteBuilding(id).enqueue(callback)
     }
 
     fun registerUser(newUser: MyUser, callback: Callback<ApiResponse<MyUser>>) {

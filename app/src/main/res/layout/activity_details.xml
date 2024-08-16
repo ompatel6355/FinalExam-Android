@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/edit_movie"
+            android:text="@string/edit_building"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-            android:id="@+id/movieDetailsLayout"
+            android:id="@+id/buildingDetailsLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="60dp"
@@ -33,31 +33,16 @@
             app:layout_constraintTop_toBottomOf="@id/titleLabel"
             app:layout_constraintVertical_bias="1.0">
 
+
         <TextView
-                android:id="@+id/movieIDTextView"
+                android:id="@+id/nameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/movieid"
+                android:text="@string/name"
                 android:textStyle="bold" />
 
         <EditText
-                android:id="@+id/movieIDEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:inputType="text"
-                android:textSize="14sp"
-                tools:ignore="Autofill,LabelFor,SmallSp,TouchTargetSizeCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
-
-        <TextView
-                android:id="@+id/titleTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/title"
-                android:textStyle="bold" />
-
-        <EditText
-                android:id="@+id/titleEditText"
+                android:id="@+id/nameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="8"
@@ -66,14 +51,14 @@
                 tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <TextView
-                android:id="@+id/studioTextView"
+                android:id="@+id/typeTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/studio"
+                android:text="@string/type"
                 android:textStyle="bold" />
 
         <EditText
-                android:id="@+id/studioEditText"
+                android:id="@+id/typeEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="8"
@@ -82,14 +67,14 @@
                 tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <TextView
-                android:id="@+id/genreTextView"
+                android:id="@+id/dateBuiltTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/genres"
+                android:text="@string/date_built"
                 android:textStyle="bold" />
 
         <EditText
-                android:id="@+id/genreEditText"
+                android:id="@+id/dateBuiltEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="8"
@@ -98,14 +83,14 @@
                 tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <TextView
-                android:id="@+id/directorsTextView"
+                android:id="@+id/cityTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/directors"
+                android:text="@string/city"
                 android:textStyle="bold" />
 
         <EditText
-                android:id="@+id/directorsEditText"
+                android:id="@+id/cityEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="8"
@@ -114,91 +99,20 @@
                 tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <TextView
-                android:id="@+id/writersTextView"
+                android:id="@+id/countryTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/writers"
+                android:text="@string/country"
                 android:textStyle="bold" />
 
         <EditText
-                android:id="@+id/writersEditText"
+                android:id="@+id/countryEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="8"
                 android:inputType="text"
                 android:textSize="14sp"
                 tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
-
-        <TextView
-                android:id="@+id/actorsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/actors"
-                android:textStyle="bold" />
-
-        <EditText
-                android:id="@+id/actorsEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:inputType="text"
-                android:textSize="14sp"
-                tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
-
-        <LinearLayout
-                android:id="@+id/lengthYearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <LinearLayout
-                    android:id="@+id/lengthLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                <TextView
-                        android:id="@+id/lengthTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/length"
-                        android:textStyle="bold" />
-
-                <EditText
-                        android:id="@+id/lengthEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:inputType="number"
-                        android:textSize="14sp"
-                        tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
-            </LinearLayout>
-
-            <LinearLayout
-                    android:id="@+id/yearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                <TextView
-                        android:id="@+id/yearTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/year"
-                        android:textStyle="bold" />
-
-                <EditText
-                        android:id="@+id/yearEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:inputType="number"
-                        android:textSize="14sp"
-                        tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
-            </LinearLayout>
-        </LinearLayout>
 
         <TextView
                 android:id="@+id/descriptionTextView"
@@ -217,60 +131,69 @@
                 android:inputType="textMultiLine"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <LinearLayout
-                android:id="@+id/mpaCriticsRatingLayout"
+        <TextView
+                android:id="@+id/architectsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:text="@string/architects"
+                android:textStyle="bold" />
 
-            <LinearLayout
-                    android:id="@+id/mpaLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+        <EditText
+                android:id="@+id/architectsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="text"
+                android:textSize="14sp"
+                tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
-                <TextView
-                        android:id="@+id/mpaRatingTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mpa_rating"
-                        android:textStyle="bold" />
+        <TextView
+                android:id="@+id/costTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cost"
+                android:textStyle="bold" />
 
-                <EditText
-                        android:id="@+id/mpaRatingEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:inputType="text"
-                        android:textSize="14sp"
-                        tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
-            </LinearLayout>
+        <EditText
+                android:id="@+id/costEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="numberDecimal"
+                android:textSize="14sp"
+                tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
-            <LinearLayout
-                    android:id="@+id/criticsLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+        <TextView
+                android:id="@+id/websiteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/website"
+                android:textStyle="bold" />
 
-                <TextView
-                        android:id="@+id/criticsRatingTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/critics_rating"
-                        android:textStyle="bold" />
+        <EditText
+                android:id="@+id/websiteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="text"
+                android:textSize="14sp"
+                tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
-                <EditText
-                        android:id="@+id/criticsRatingEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:inputType="numberDecimal"
-                        android:textSize="14sp"
-                        tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
-            </LinearLayout>
-        </LinearLayout>
+        <TextView
+                android:id="@+id/imageUrlTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/image_url"
+                android:textStyle="bold" />
+
+        <EditText
+                android:id="@+id/imageUrlEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="text"
+                android:textSize="14sp"
+                tools:ignore="Autofill,LabelFor,SmallSp,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <LinearLayout
                 android:id="@+id/cancelUpdateButtonLayout"

@@ -1,21 +1,37 @@
 <resources>
-    <string name="app_name">ICE8-Android</string>
-    <string name="favourite_movies">Favourite Movies</string>
-    <string name="movieid">Movie ID</string>
-    <string name="title">Title</string>
-    <string name="studio">Studio</string>
-    <string name="genres">Genres</string>
-    <string name="directors">Directors</string>
-    <string name="writers">Writers</string>
-    <string name="actors">Actors</string>
-    <string name="edit_movie">Edit Movie</string>
-    <string name="length">Length</string>
-    <string name="year">Year</string>
-    <string name="description">Short Description</string>
-    <string name="mpa_rating">MPA Rating</string>
-    <string name="critics_rating">Critics Rating</string>
-    <string name="delete_movie">Delete Movie</string>
-    <string name="are_you_sure">Are you sure?</string>
+    <string name="app_name">BuildingManager</string>
+    <string name="favourite_buildings">Favourite Buildings</string>
+    <string name="buildingid">Building ID</string>
+    <string name="name">Name</string>
+    <string name="location">Location</string>
+    <string name="type">Type</string>
+    <string name="architects">Architects</string>
+    <string name="contractors">Contractors</string>
+    <string name="materials">Materials</string>
+    <string name="edit_building">Edit Building</string>
+    <string name="size">Size</string>
+    <string name="year_built">Year Built</string>
+    <string name="description">Description</string>
+    <string name="rating">Rating</string>
+    <string name="delete_building">Delete Building</string>
+    <string name="are_you_sure">Are you sure you want to delete this building?</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
+
+    <!-- Add new strings if needed -->
+    <string name="add_building">Add Building</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="welcome_message">Welcome to BuildingManager!</string>
+    <string name="error_message">An error occurred. Please try again.</string>
+
+    <!-- Existing string resources -->
+
+    <string name="date_built">Date Built</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="cost">Cost</string>
+    <string name="website">Website</string>
+    <string name="image_url">Image URL</string>
+
 </resources>

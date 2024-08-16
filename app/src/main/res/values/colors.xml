@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="blue">#0000FF</color>
+    <!-- Primary Color -->
+    <color name="colorPrimary">#6200EE</color>
+    <!-- Primary Dark Color -->
+    <color name="colorPrimaryDark">#3700B3</color>
+    <!-- Accent Color -->
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- Background Colors -->
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorBackgroundSecondary">#F5F5F5</color>
+
+    <!-- Text Colors -->
+    <color name="colorTextPrimary">#000000</color>
+    <color name="colorTextSecondary">#757575</color>
+    <color name="colorTextHint">#B0B0B0</color>
+
+    <!-- Status Colors -->
+    <color name="colorSuccess">#4CAF50</color> <!-- Green for success -->
+    <color name="colorWarning">#FFEB3B</color> <!-- Yellow for warning -->
+    <color name="colorError">#F44336</color> <!-- Red for error -->
+
+    <!-- Additional Colors -->
+    <color name="colorAccentLight">#B2DFDB</color> <!-- Light accent color -->
+    <color name="colorDivider">#E0E0E0</color> <!-- Color for dividers and borders -->
+    <color name="colorButtonBackground">#6200EE</color> <!-- Background color for buttons -->
+    <color name="colorButtonText">#FFFFFF</color> <!-- Text color for buttons -->
+    <color name="colorCardBackground">#FFFFFF</color> <!-- Background color for cards -->
+    <color name="colorCardBorder">#DDDDDD</color>
+    <color name="blue">#1F45FF</color> <!-- Border color for cards -->
 </resources>

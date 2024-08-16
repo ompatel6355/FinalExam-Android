@@ -15,16 +15,16 @@ import com.example.ice7_android.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MovieViewModel by viewModels()
+    private val viewModel: BuildingViewModel by viewModels()
     private lateinit var firstAdapter: FirstAdapter
-    private lateinit var movieList: MutableList<Movie>
+    private lateinit var buildingList: MutableList<Building>
     private lateinit var sharedPreferences: SharedPreferences
 
     private val detailsActivityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
-            viewModel.getAllMovies() // Refresh the movie list
+            viewModel.getAllBuildings() // Refresh the building list
         }
     }
 
@@ -42,21 +42,21 @@ class MainActivity : AppCompatActivity() {
             adapter = firstAdapter
         }
 
-        viewModel.movies.observe(this) { movies ->
-            movieList = movies.toMutableList()
-            firstAdapter.updateMovies(movies)
+        viewModel.buildings.observe(this) { buildings ->
+            buildingList = buildings.toMutableList()
+            firstAdapter.updateBuildings(buildings)
         }
 
-        firstAdapter.onMovieClick = { movie ->
+        firstAdapter.onBuildingClick = { building ->
             val intent = Intent(this, DetailsActivity::class.java).apply {
-                putExtra("MOVIE_ID", movie.id)
+                putExtra("BUILDING_ID", building.id)
                 putExtra("IS_UPDATE", true)
             }
             detailsActivityResultLauncher.launch(intent)
         }
 
         binding.addButton.setOnClickListener {
-            // go to the Details Activity for adding a new movie
+            // Go to the Details Activity for adding a new building
             val intent = Intent(this, DetailsActivity::class.java).apply {
                 putExtra("IS_UPDATE", false)
             }
@@ -64,34 +64,36 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.logoutButton.setOnClickListener {
-            // removing the auth_token
+            // Remove the auth_token
             val editor = sharedPreferences.edit()
-            editor.putString("auth_token", "")
+            editor.remove("auth_token") // Use remove instead of putting an empty string
             editor.apply()
 
-            // navigate back to the Login
+            // Navigate back to the Login
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         // Setup swipe to delete
-        val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT)
-        {
+        val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-                return false // not used
+                return false // Not used
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 AlertDialog.Builder(this@MainActivity).apply {
-                    setTitle(getString(R.string.delete_movie))
+                    setTitle(getString(R.string.delete_building))
                     setMessage(getString(R.string.are_you_sure))
                     setPositiveButton(getString(R.string.ok)) { dialog, _ ->
                         dialog.dismiss()
                         val position = viewHolder.adapterPosition
-                        val movieId = movieList[position].id
-                        viewModel.deleteMovie(movieId) // Trigger deletion in ViewModel
-                    }
+                        val buildingId = buildingList[position].id
+                        if (buildingId != null) {
+                            viewModel.deleteBuilding(buildingId) // Trigger deletion in ViewModel
+                        } else {
+                            println("Building ID is null, cannot delete.")
+                        }                    }
                     setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                         dialog.dismiss()
                         firstAdapter.notifyItemChanged(viewHolder.adapterPosition) // Reverts the swipe action visually
@@ -106,6 +108,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getAllMovies() // Refresh the movie list
+        viewModel.getAllBuildings() // Refresh the building list
     }
 }
